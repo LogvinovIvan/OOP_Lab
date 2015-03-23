@@ -5,15 +5,15 @@
  */
 package packageLine;
 
+import shape.data.ShapeFactory;
 import java.awt.Color;
 import java.awt.Graphics;
-import myPack.*;
 
 /**
  *
  * @author Иван
  */
-public class Line extends Shape {
+public class Line extends ShapeFactory {
 
     public final int x2, y2;
 

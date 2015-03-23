@@ -8,13 +8,13 @@ package packRectangle;
 
 import java.awt.Graphics;
 import methodDraw.DrawPhigure;
-import myPack.Shape;
+import shape.data.ShapeFactory;
 
 /**
  *
  * @author Иван
  */
-public class Rectangle extends Shape {
+public class Rectangle extends ShapeFactory {
     public int width, height;
     public Rectangle(int x, int y, int width, int height){
         basePointDx=x;

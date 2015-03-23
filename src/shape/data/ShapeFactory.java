@@ -1,8 +1,9 @@
-package myPack;
+package shape.data;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import methodDraw.DrawPhigure;
+import shape.drawing.Shape;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,29 +14,17 @@ import methodDraw.DrawPhigure;
  *
  * @author Иван
  */
-abstract public class Shape implements DrawPhigure {
+abstract public class ShapeFactory implements DrawPhigure {
 
     public final int basePointDx, basePointDy;
     private final Color color;
 
-    public Shape(int basePointDx, int basePointDy, Color color) {
+    public ShapeFactory(int basePointDx, int basePointDy, Color color) {
         this.basePointDx = basePointDx;
         this.basePointDy = basePointDy;
         this.color = color;
+     }
+        abstract Shape createShape();
     }
 
-    abstract public void paint(Graphics g);
 
-    public int getBasePointDx() {
-        return basePointDx;
-    }
-
-    public int getBasePointDy() {
-        return basePointDy;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-}

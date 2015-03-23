@@ -17,7 +17,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
-import myPack.Shape;
+import shape.data.ShapeFactory;
 import packArc.Arc;
 import packFillRectangle.FillRectangle;
 import packRectangle.Rectangle;
@@ -43,7 +43,7 @@ public class JavaApplication1 extends JPanel {
 
     protected void paintComponent(Graphics g) {
 
-        List<Shape> m1 = new LinkedList<>();
+        List<ShapeFactory> m1 = new LinkedList<>();
         m1.add(new Line(20, 10, 50, 10));
         m1.add(new Ellipses(20, 100, 50, 150));
         m1.add(new Rectangle(20, 100, 50, 100));

@@ -5,14 +5,13 @@
  */
 
 package ellipsePack;
+import shape.data.ShapeFactory;
 import java.awt.Graphics;
-import myPack.*;
-import methodDraw.*;
 /**
  *
  * @author Иван
  */
-public class Ellipses extends Shape implements DrawPhigure {
+public class Ellipses extends ShapeFactory implements DrawPhigure {
    public int width ,height;
    public Ellipses(int x, int width,int y, int height)
     {

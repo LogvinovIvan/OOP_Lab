@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package methodDraw;
+package shape.drawing;
 
 import java.awt.Graphics;
 
@@ -11,7 +11,7 @@ import java.awt.Graphics;
  *
  * @author Иван
  */
-public interface DrawPhigure {
+public interface Shape {
 
     public void paint(Graphics g);
 }
