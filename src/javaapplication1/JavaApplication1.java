@@ -9,20 +9,25 @@ package javaapplication1;
  *
  * @author Иван
  */
-import ellipsePack.Ellipses;
+
+import FillRectangle.factoty.pack.FillRectangleFactory;
+import LineFactory.pack.LineFactory;
+import ellipsePack.factory.EllipsesFactory;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
-import shape.data.ShapeFactory;
-import packArc.Arc;
-import packFillRectangle.FillRectangle;
-import packRectangle.Rectangle;
-import packTriangle.Triangle;
-import packageLine.Line;
+import method.shape.Factory;
+import packArc.factory.ArcFactory;
+import rectangle.factory.pack.RectangleFactory;
+import shape.drawing.Shape;
+import triangle.factory.pack.TriangleFactory;
+
 
 /*
   
@@ -41,26 +46,15 @@ public class JavaApplication1 extends JPanel {
         jframe.setVisible(true);
     }
 
-    protected void paintComponent(Graphics g) {
-
-        List<ShapeFactory> m1 = new LinkedList<>();
-        m1.add(new Line(20, 10, 50, 10));
-        m1.add(new Ellipses(20, 100, 50, 150));
-        m1.add(new Rectangle(20, 100, 50, 100));
-        m1.add(new FillRectangle(20, 200, 40, 250, 20, 20));
-        m1.add(new Triangle(20, 100, 50, 100, 5, 5));
-        m1.add(new Arc(40, 100, 60, 100, 50, 200));
-
-        m1.stream().forEach((x) -> {
-            x.paint(g);
-        });
-    }
+    
 
     public static void main(String[] args) {
         // TODO code application logic here
 
-        new JavaApplication1();
-
+        
+        
+        NewJFrame form = new NewJFrame();
+        form.setVisible(true);
     }
 
 }

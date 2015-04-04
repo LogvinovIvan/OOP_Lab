@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shape.drawing;
 
-import java.awt.Graphics;
+package method.shape;
+
+import shape.drawing.Shape;
 
 /**
  *
  * @author Иван
  */
-public interface Shape {
-
-    public void paint(Graphics g,int x1,int x2, int y1, int y2);
+public interface Factory {
+    public Shape createShape();
+    
 }

@@ -3,15 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shape.drawing;
+
+package rectangle.pack;
 
 import java.awt.Graphics;
+import shape.drawing.Shape;
 
 /**
  *
  * @author Иван
  */
-public interface Shape {
+public class Rectangle implements Shape{
 
-    public void paint(Graphics g,int x1,int x2, int y1, int y2);
+    @Override
+    public void paint(Graphics g,int x1, int x2, int y1, int y2) {
+        g.drawRect( x1, y1, x2, y2);
+    }
+    
 }
