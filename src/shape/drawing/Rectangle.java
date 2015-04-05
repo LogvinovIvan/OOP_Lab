@@ -4,21 +4,21 @@
  * and open the template in the editor.
  */
 
-package ellipse.pack;
+package shape.drawing;
 
 import java.awt.Graphics;
 import java.util.List;
-import shape.drawing.Shape;
+
 
 /**
  *
  * @author Иван
  */
-public class Ellipse implements Shape{
+public class Rectangle implements Shape{
 
     @Override
-     public void paint(Graphics g,List<Integer> list) {
-    g.drawOval(list.get(0), list.get(1), list.get(2)-list.get(0), list.get(3)-list.get(1));
+    public void paint(Graphics g,List<Integer> list) {
+        g.drawRect( list.get(0), list.get(1), list.get(2)-list.get(0), list.get(3)-list.get(1));
     }
     
 }

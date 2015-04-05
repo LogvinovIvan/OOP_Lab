@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package LineFactory.pack;
-import line.pack.Line;
+
 import method.shape.Factory;
+import shape.drawing.Line;
 import shape.drawing.Shape;
 
 /**

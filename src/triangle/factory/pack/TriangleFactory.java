@@ -7,7 +7,8 @@ package triangle.factory.pack;
 
 import LineFactory.pack.LineFactory;
 import shape.drawing.Shape;
-import triangle.pack.Triangle;
+import shape.drawing.Triangle;
+
 
 /**
  *

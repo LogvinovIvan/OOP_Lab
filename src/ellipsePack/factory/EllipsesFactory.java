@@ -5,9 +5,10 @@
  */
 
 package ellipsePack.factory;
-import ellipse.pack.Ellipse;
 import method.shape.Factory;
+import shape.drawing.Ellipse;
 import shape.drawing.Shape;
+
 
 /**
  *

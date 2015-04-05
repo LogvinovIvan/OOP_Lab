@@ -7,8 +7,9 @@
 package FillRectangle.factoty.pack;
 
 
-import FillRectangle.pack.FillRectangle;
+
 import rectangle.factory.pack.RectangleFactory;
+import shape.drawing.FillRectangle;
 import shape.drawing.Shape;
 
 /**

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package line.pack;
+package shape.drawing;
 
 import java.awt.Canvas;
 import java.awt.Graphics;

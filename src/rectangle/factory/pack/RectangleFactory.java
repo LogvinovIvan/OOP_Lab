@@ -7,7 +7,7 @@
 package rectangle.factory.pack;
 
 import method.shape.Factory;
-import rectangle.pack.Rectangle;
+import shape.drawing.Rectangle;
 import shape.drawing.Shape;
 
 /**

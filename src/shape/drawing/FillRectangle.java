@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package FillRectangle.pack;
+package shape.drawing;
 
 import java.awt.Graphics;
 import java.util.List;
