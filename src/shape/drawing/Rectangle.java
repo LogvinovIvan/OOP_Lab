@@ -5,7 +5,6 @@
  */
 
 package shape.drawing;
-
 import java.awt.Graphics;
 import java.util.List;
 

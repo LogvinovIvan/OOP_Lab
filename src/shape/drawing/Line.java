@@ -6,16 +6,16 @@
 
 package shape.drawing;
 
-import java.awt.Canvas;
+
 import java.awt.Graphics;
 import java.util.List;
-import shape.drawing.Shape;
+
 
 /**
  *
  * @author Иван
  */
-public class Line extends Canvas implements Shape{
+public class Line  implements Shape{
 
     @Override
     public void paint(Graphics g,List<Integer> list) {

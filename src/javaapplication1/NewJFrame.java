@@ -1,17 +1,18 @@
 package javaapplication1;
 
-import FillRectangle.factoty.pack.FillRectangleFactory;
-import LineFactory.pack.LineFactory;
-import ellipsePack.factory.EllipsesFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import method.shape.Factory;
-import packArc.factory.ArcFactory;
-import rectangle.factory.pack.RectangleFactory;
+import shape.drawing.Arc;
+import shape.drawing.Ellipse;
+import shape.drawing.FillRectangle;
+import shape.drawing.Line;
+import shape.drawing.Rectangle;
 import shape.drawing.Shape;
-import triangle.factory.pack.TriangleFactory;
+import shape.drawing.Triangle;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,41 +30,37 @@ public class NewJFrame extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     Map<String, Shape> hm;
-    Map<String, Integer> countDot; 
-    List  <Integer> a;
-    private int i=1,mouseX,mouseY;
+    Map<String, Integer> countDot;
+    List<Integer> a;
+    private int i = 1;
+
     public NewJFrame() {
         initComponents();
         hm = new HashMap<>();
-        Factory ln = new LineFactory();
-        hm.put("линия", ln.createShape());
-        ln = new EllipsesFactory();
-        hm.put("элипс", ln.createShape());
-        ln = new RectangleFactory();
-        hm.put("прямоугольник", ln.createShape());
-        ln = new TriangleFactory();
-        hm.put("треугольник", ln.createShape());
-        ln = new ArcFactory();
-        hm.put("дуга", ln.createShape());
-        ln = new FillRectangleFactory();
-        hm.put("прямоугольник 2", ln.createShape());
-        countDot= new HashMap<>();
+        hm.put("линия", new Line());
+        hm.put("элипс", new Ellipse());
+        hm.put("прямоугольник", new Rectangle());
+        hm.put("треугольник", new Triangle());
+        hm.put("дуга", new Arc());
+        hm.put("прямоугольник 2", new FillRectangle());
+
+        countDot = new HashMap<>();
         countDot.put("линия", 2);
         countDot.put("элипс", 2);
         countDot.put("прямоугольник", 2);
         countDot.put("треугольник", 3);
         countDot.put("дуга", 2);
         countDot.put("прямоугольник 2", 2);
-        a = new ArrayList<Integer>();  
-        
-        
+
+        a = new ArrayList<>();
+
         choice1.add("прямоугольник");
         choice1.add("элипс");
         choice1.add("линия");
         choice1.add("дуга");
         choice1.add("прямоугольник 2");
         choice1.add("треугольник");
-        
+
     }
 
     /**
@@ -173,29 +170,30 @@ public class NewJFrame extends javax.swing.JFrame {
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
         canvas2.update(canvas2.getGraphics());
+        a.clear();
+        i = 1;
     }//GEN-LAST:event_button1ActionPerformed
 
     private void canvas2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas2MousePressed
         // TODO add your handling code here:
-        if (i<countDot.get(choice1.getSelectedItem())){
-         a.add(evt.getX());
-         a.add(evt.getY());
-         i++; 
-        }
-        else {
-        a.add(evt.getX());
-        a.add(evt.getY());
-        Shape s = hm.get(choice1.getSelectedItem());
-        s.paint( canvas2.getGraphics(), a);
-        a.clear();
-        i=1;
+        if (i < countDot.get(choice1.getSelectedItem())) {
+            a.add(evt.getX());
+            a.add(evt.getY());
+            i++;
+        } else {
+            a.add(evt.getX());
+            a.add(evt.getY());
+            Shape s = hm.get(choice1.getSelectedItem());
+            s.paint(canvas2.getGraphics(), a);
+            a.clear();
+            i = 1;
         }
     }//GEN-LAST:event_canvas2MousePressed
 
     private void choice1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_choice1ItemStateChanged
         // TODO add your handling code here:
         a.clear();
-        i=1;
+        i = 1;
     }//GEN-LAST:event_choice1ItemStateChanged
 
    
