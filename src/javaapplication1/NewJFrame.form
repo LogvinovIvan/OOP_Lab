@@ -183,6 +183,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="canvas2MousePressed"/>
+          </Events>
         </Component>
         <Component class="java.awt.Label" name="label2">
           <Properties>

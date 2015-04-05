@@ -8,6 +8,7 @@ package line.pack;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
+import java.util.List;
 import shape.drawing.Shape;
 
 /**
@@ -17,8 +18,8 @@ import shape.drawing.Shape;
 public class Line extends Canvas implements Shape{
 
     @Override
-    public void paint(Graphics g,int x1,int x2, int y1, int y2) {
-         g.drawLine(x2, y2, x1,y2);
+    public void paint(Graphics g,List<Integer> list) {
+         g.drawLine(list.get(0), list.get(1), list.get(2), list.get(3));
         
     }
     

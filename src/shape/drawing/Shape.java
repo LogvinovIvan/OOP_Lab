@@ -6,6 +6,7 @@
 package shape.drawing;
 
 import java.awt.Graphics;
+import java.util.List;
 
 /**
  *
@@ -13,5 +14,5 @@ import java.awt.Graphics;
  */
 public interface Shape {
 
-    public void paint(Graphics g,int x1,int x2, int y1, int y2);
+    public void paint(Graphics g,List<Integer> list);
 }

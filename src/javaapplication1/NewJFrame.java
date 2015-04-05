@@ -3,7 +3,9 @@ package javaapplication1;
 import FillRectangle.factoty.pack.FillRectangleFactory;
 import LineFactory.pack.LineFactory;
 import ellipsePack.factory.EllipsesFactory;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import method.shape.Factory;
 import packArc.factory.ArcFactory;
@@ -27,7 +29,9 @@ public class NewJFrame extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     Map<String, Shape> hm;
-    
+    Map<String, Integer> countDot; 
+    List  <Integer> a;
+    private int i=1,mouseX,mouseY;
     public NewJFrame() {
         initComponents();
         hm = new HashMap<>();
@@ -43,12 +47,23 @@ public class NewJFrame extends javax.swing.JFrame {
         hm.put("дуга", ln.createShape());
         ln = new FillRectangleFactory();
         hm.put("прямоугольник 2", ln.createShape());
+        countDot= new HashMap<>();
+        countDot.put("линия", 2);
+        countDot.put("элипс", 2);
+        countDot.put("прямоугольник", 2);
+        countDot.put("треугольник", 3);
+        countDot.put("дуга", 2);
+        countDot.put("прямоугольник 2", 2);
+        a = new ArrayList<Integer>();  
+        
+        
         choice1.add("прямоугольник");
         choice1.add("элипс");
         choice1.add("линия");
         choice1.add("дуга");
         choice1.add("прямоугольник 2");
         choice1.add("треугольник");
+        
     }
 
     /**
@@ -96,6 +111,11 @@ public class NewJFrame extends javax.swing.JFrame {
         canvas1.setBackground(new java.awt.Color(255, 255, 255));
 
         canvas2.setBackground(new java.awt.Color(255, 255, 255));
+        canvas2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                canvas2MousePressed(evt);
+            }
+        });
 
         label2.setText("x1");
 
@@ -209,9 +229,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String str =  choice1.getSelectedItem();
-        label1.setText(str);
         Shape s = hm.get(choice1.getSelectedItem());
-        s.paint( canvas2.getGraphics(), Integer.parseInt(jTextField1.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField4.getText()));
+        //s.paint( canvas2.getGraphics(), Integer.parseInt(jTextField1.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField4.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void choice1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choice1MouseClicked
@@ -222,6 +241,23 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         canvas2.update(canvas2.getGraphics());
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void canvas2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas2MousePressed
+        // TODO add your handling code here:
+        if (i<countDot.get(choice1.getSelectedItem())){
+         a.add(evt.getX());
+         a.add(evt.getY());
+         i++; 
+        }
+        else {
+        a.add(evt.getX());
+        a.add(evt.getY());
+        Shape s = hm.get(choice1.getSelectedItem());
+        s.paint( canvas2.getGraphics(), a);
+        a.clear();
+        i=1;
+        }
+    }//GEN-LAST:event_canvas2MousePressed
 
    
 
