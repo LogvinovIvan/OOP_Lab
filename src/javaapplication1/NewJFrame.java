@@ -1,6 +1,21 @@
 package javaapplication1;
 
 
+import Draw.DrawingArc;
+import Draw.DrawingEllipse;
+import Draw.DrawingFillRecatngle;
+import Draw.DrawingLine;
+import Draw.DrawingRectangle;
+import Draw.DrawingShape;
+import Draw.DrawingTriangle;
+import Draw.IDrawShape;
+import factory.ArcFactory;
+import factory.EllipseFactory;
+import factory.FillRecatangleFactory;
+import factory.IFactory;
+import factory.LineFactory;
+import factory.RectangleFactory;
+import factory.TrangleFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,20 +44,38 @@ public class NewJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    Map<String, Shape> hm;
+    Map<String, IFactory> hm;
     Map<String, Integer> countDot;
-    List<Integer> a;
+    Map<String,Class> tableDrawing;
+    Map<String, Shape> tableClass;
+    List<Integer> ListDot;
+    DrawingShape drawingShape = new DrawingShape (); 
     private int i = 1;
 
     public NewJFrame() {
         initComponents();
+        
+        
+        
+        
+        tableClass = new HashMap<>();
+        tableClass.put("линия", new Line());
+        tableClass.put("элипс", new Ellipse());
+        tableClass.put("прямоугольник",new Rectangle());
+        tableClass.put("дуга",new Arc());
+        tableClass.put("треугольник", new Triangle());
+        tableClass.put("прямоугольник 2", new FillRectangle());
+        
+        
+        
+        
         hm = new HashMap<>();
-        hm.put("линия", new Line());
-        hm.put("элипс", new Ellipse());
-        hm.put("прямоугольник", new Rectangle());
-        hm.put("треугольник", new Triangle());
-        hm.put("дуга", new Arc());
-        hm.put("прямоугольник 2", new FillRectangle());
+        hm.put("линия", new LineFactory());
+        hm.put("элипс", new EllipseFactory());
+        hm.put("прямоугольник",  new RectangleFactory());
+        hm.put("треугольник", new TrangleFactory());
+        hm.put("дуга", new ArcFactory());
+        hm.put("прямоугольник 2", new FillRecatangleFactory());
 
         countDot = new HashMap<>();
         countDot.put("линия", 2);
@@ -52,7 +85,7 @@ public class NewJFrame extends javax.swing.JFrame {
         countDot.put("дуга", 2);
         countDot.put("прямоугольник 2", 2);
 
-        a = new ArrayList<>();
+        ListDot = new ArrayList<>();
 
         choice1.add("прямоугольник");
         choice1.add("элипс");
@@ -170,29 +203,33 @@ public class NewJFrame extends javax.swing.JFrame {
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
         canvas2.update(canvas2.getGraphics());
-        a.clear();
+        ListDot.clear();
         i = 1;
     }//GEN-LAST:event_button1ActionPerformed
 
     private void canvas2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas2MousePressed
         // TODO add your handling code here:
         if (i < countDot.get(choice1.getSelectedItem())) {
-            a.add(evt.getX());
-            a.add(evt.getY());
+            ListDot.add(evt.getX());
+            ListDot.add(evt.getY());
             i++;
         } else {
-            a.add(evt.getX());
-            a.add(evt.getY());
-            Shape s = hm.get(choice1.getSelectedItem());
-            s.paint(canvas2.getGraphics(), a);
-            a.clear();
+            ListDot.add(evt.getX());
+            ListDot.add(evt.getY());
+            IFactory s = hm.get(choice1.getSelectedItem());
+
+            Shape shape = tableClass.get(choice1.getSelectedItem());
+            shape.init(ListDot);
+            IDrawShape drawShape = s.createShape();
+            drawShape.paint(canvas2.getGraphics(), shape);
+            ListDot.clear();
             i = 1;
         }
     }//GEN-LAST:event_canvas2MousePressed
 
     private void choice1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_choice1ItemStateChanged
         // TODO add your handling code here:
-        a.clear();
+        ListDot.clear();
         i = 1;
     }//GEN-LAST:event_choice1ItemStateChanged
 

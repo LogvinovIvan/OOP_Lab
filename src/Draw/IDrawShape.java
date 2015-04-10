@@ -3,15 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shape.drawing;
 
+package Draw;
 
+import java.awt.Graphics;
 import java.util.List;
+import shape.drawing.Shape;
+
 
 /**
  *
  * @author Иван
  */
-public interface Shape {
-    public void init(List<Integer> list);
+public interface IDrawShape {
+         public void paint(Graphics g,Shape shape);
+
 }

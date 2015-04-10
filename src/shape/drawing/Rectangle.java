@@ -14,10 +14,15 @@ import java.util.List;
  * @author Иван
  */
 public class Rectangle implements Shape{
-
-    @Override
-    public void paint(Graphics g,List<Integer> list) {
-        g.drawRect( list.get(0), list.get(1), list.get(2)-list.get(0), list.get(3)-list.get(1));
-    }
+public int x1, y1, x2, y2;
+    
+  public void init(List<Integer> list){
+      this.x1 = list.get(0);
+      this.y1 = list.get(1);
+      this.x2 = list.get(2)- list.get(0);
+      this.y2 = list.get(3)-list.get(1);;
+  } 
+    
+    
     
 }
